@@ -1,18 +1,9 @@
 import React from 'react';
 
-export default function Button({ children, onClick, variant = 'primary' }) {
-  const styles = {
-    padding: '10px 20px',
-    backgroundColor: variant === 'primary' ? '#01C38D' : '#333',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  };
-
-  return (
-    <button style={styles} onClick={onClick}>
-      {children}
-    </button>
-  );
-}
+export default function Button({ type = "button", children, onClick, style, ...props }) {
+    return (
+      <button type={type} onClick={onClick} style={style} {...props}>
+        {children}
+      </button>
+    );
+  }
