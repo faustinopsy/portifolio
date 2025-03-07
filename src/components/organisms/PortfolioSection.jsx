@@ -8,7 +8,7 @@ export default function PortfolioSection() {
     justifyContent: 'center',
     flexWrap: 'wrap',
     padding: '40px 20px',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#132d46f0',
   };
 
   const portfolioData = [
@@ -75,7 +75,7 @@ export default function PortfolioSection() {
   ];
 
   return (
-    <section style={portfolioStyles}>
+    <section style={portfolioStyles} id='portfolio'>
       {portfolioData.map((item, index) => (
         <CardPortfolio
           key={index}

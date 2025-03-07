@@ -10,7 +10,7 @@ export default function HeroSection() {
     alignItems: 'center',
     padding: '60px 20px',
     textAlign: 'center',
-    backgroundColor: '#1f1f1f',
+    backgroundColor: '#132d46f0',
     color: '#fff',
   };
 
@@ -29,12 +29,12 @@ export default function HeroSection() {
         src="https://faustinopsy.com/assets/images/my-avatar.webp"
         alt="Foto de Perfil"
       />
-      <Heading level={1}>Hello, I'm Rodrigo Faustino</Heading>
+      <Heading level={1}>Rodrigo Faustino</Heading>
       <Text size="18px" color="#ccc">
-        UI/UX Designer & Full Stack Developer
+        Professor & Full Stack Developer
       </Text>
       <div style={{ marginTop: '20px' }}>
-        <Button onClick={() => alert('Contato!')}>Work With Me</Button>
+        <Button onClick={() => alert('Contato!')}>Currículo</Button>
       </div>
     </section>
   );

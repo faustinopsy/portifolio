@@ -8,5 +8,12 @@
     font-family: 'Open Sans', sans-serif;
     background-color: #f5f5f5;
     color: #333;
+    background: url(img/flash.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100% - 50px);
+    transition: filter 250ms, transform 250ms;
+    width: 100%;
+    backdrop-filter: blur(1px);
+    margin-bottom: 50px;
   }
   

@@ -10,7 +10,7 @@ export default function CardPortfolio({ imageSrc, title, description, link }) {
     padding: '16px',
     maxWidth: '300px',
     textAlign: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff42',
   };
 
   const imgStyles = {
@@ -23,7 +23,7 @@ export default function CardPortfolio({ imageSrc, title, description, link }) {
     display: 'inline-block',
     marginTop: '12px',
     padding: '8px 16px',
-    backgroundColor: '#2F80ED',
+    backgroundColor: '#01c38d',
     color: '#fff',
     textDecoration: 'none',
     borderRadius: '4px',

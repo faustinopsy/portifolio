@@ -8,7 +8,7 @@ export default function Header() {
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '16px 32px',
-    backgroundColor: '#0c0c0c',
+    backgroundColor: '#191E29',
     color: '#fff',
   };
 

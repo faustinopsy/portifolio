@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Text({ children, size = '16px', color = '#666' }) {
+export default function Text({ children, size = '16px', color = '#fff' }) {
   const styles = {
     fontSize: size,
     color,

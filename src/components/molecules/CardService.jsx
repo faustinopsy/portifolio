@@ -9,6 +9,7 @@ export default function CardService({ icon, title, description }) {
     padding: '16px',
     textAlign: 'center',
     maxWidth: '300px',
+    color: '#01c38d'
   };
 
   const iconStyles = {
@@ -18,7 +19,7 @@ export default function CardService({ icon, title, description }) {
 
   return (
     <div style={cardStyles}>
-      <div style={iconStyles}>{icon}</div>
+      <img style={iconStyles} src={icon} alt={title} />
       <Heading level={3}>{title}</Heading>
       <Text>{description}</Text>
     </div>
