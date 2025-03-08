@@ -33,9 +33,9 @@ export default function HeroSection() {
       <Text size="18px" color="#ccc">
         Professor & Full Stack Developer
       </Text>
-      <div style={{ marginTop: '20px' }}>
+      {/* <div style={{ marginTop: '20px' }}>
         <Button onClick={() => alert('Contato!')}>Currículo</Button>
-      </div>
+      </div> */}
     </section>
   );
 }

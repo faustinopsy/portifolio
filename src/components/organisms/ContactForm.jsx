@@ -11,10 +11,13 @@ export default function ContactForm() {
   useEffect(() => {
     async function fetchCsrfToken() {
       try {
-        const response = await fetch('http://localhost:8000/get-csrf-token.php', {
+        const response = await fetch('api/get-csrf-token.php', {
           method: 'POST',
           credentials: 'include',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
         });
         if (response.ok) {
           const data = await response.json();
@@ -46,11 +49,12 @@ export default function ContactForm() {
     const payload = { ...formData, csrf_token: csrfToken };
     console.log(csrfToken)
     try {
-      const response = await fetch('http://localhost:8000/send-email.php', {
+      const response = await fetch('api/send-email.php', {
         method: 'POST',
         credentials: 'include',
-        headers: { 'Content-Type': 'application/json' 
-          
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
         },
         body: JSON.stringify(payload),
       });

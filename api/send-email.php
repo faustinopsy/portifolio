@@ -2,13 +2,19 @@
 session_start();
 
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Origin: http://localhost:4004/");
+header("Access-Control-Allow-Origin: http://localhost:4006/");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, X-CSRF-Token");
+header("Access-Control-Allow-Headers: Content-Type, X-CSRF-Token, X-Requested-With");
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
+}
+
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || $_SERVER['HTTP_X_REQUESTED_WITH'] !== 'XMLHttpRequest') {
+    http_response_code(403);
+    echo json_encode(["error" => "Requisição inválida."]);
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -17,8 +23,47 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+/*
+ * Implementação do Rate Limit:
+ * - Cada IP pode enviar uma requisição a cada 5 minutos (300 segundos).
+ * - Se o usuário tentar enviar antes, incrementa uma penalidade de 5 minutos.
+ */
+$clientIp = $_SERVER['REMOTE_ADDR'];
+$baseWait = 300; // 5 minutos em segundos
+// Definindo um arquivo para armazenar os dados do rate limit para cada IP
+$rateLimitFile = __DIR__ . '/rate_limit_' . md5($clientIp) . '.json';
+
+// Recupera ou inicializa os dados do IP
+if (file_exists($rateLimitFile)) {
+    $rateData = json_decode(file_get_contents($rateLimitFile), true);
+} else {
+    $rateData = [
+        'last_attempt' => 0,
+        'penalty' => 0
+    ];
+}
+
+$now = time();
+$allowedTime = $rateData['last_attempt'] + $baseWait + $rateData['penalty'];
+if ($now < $allowedTime) {
+    // Incrementa a penalidade
+    $rateData['penalty'] += $baseWait;
+    file_put_contents($rateLimitFile, json_encode($rateData));
+    $remaining = $allowedTime - $now;
+    http_response_code(429);
+    echo json_encode(["error" => "Limite de envio atingido. Tente novamente em {$remaining} segundos."]);
+    exit;
+}
+
+// Se passou do tempo permitido, atualiza os dados e reseta a penalidade
+$rateData['last_attempt'] = $now;
+$rateData['penalty'] = 0;
+file_put_contents($rateLimitFile, json_encode($rateData));
+
+
+
 require __DIR__ . '/vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable('../');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ );
 $dotenv->load();
 
 $json = file_get_contents("php://input");
