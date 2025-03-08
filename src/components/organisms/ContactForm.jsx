@@ -62,7 +62,10 @@ export default function ContactForm() {
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
-      } else {
+      } else if (response.status === 429) {
+        setStatus('Limite');
+      }
+      else {
         setStatus('error');
       }
     } catch (error) {
@@ -127,7 +130,9 @@ export default function ContactForm() {
       </Button>
       {status === 'loading' && <p>Enviando...</p>}
       {status === 'success' && <p>Mensagem enviada com sucesso!</p>}
-      {status === 'error' && <p>Ocorreu um erro. Tente novamente.</p>}
+      {status === 'error' && <p>Ocorreu um erro. Tente novamente .</p>}
+      {status === 'Limite' && <p>Tente novamente mais tarde, pois ultrapassou o limite de solicitações.</p>}
+      
     </form>
   );
 }
