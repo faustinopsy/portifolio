@@ -12,7 +12,7 @@ export default function NavList() {
   };
 
   return (
-    <Nav>
+    <Nav className="navbar">
       <UnorderedList style={listStyles}>
         <ListItem>
           <Anchor href="#home">Home</Anchor>

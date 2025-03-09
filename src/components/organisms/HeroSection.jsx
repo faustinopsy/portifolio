@@ -23,10 +23,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section style={heroStyles}>
+    <section style={heroStyles} id="home">
       <img
         style={imageStyles}
-        src="https://faustinopsy.com/assets/images/my-avatar.webp"
+        src="images/my-avatar.webp"
         alt="Foto de Perfil"
       />
       <Heading level={1}>Rodrigo Faustino</Heading>

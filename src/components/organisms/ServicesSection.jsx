@@ -9,6 +9,7 @@ export default function ServicesSection() {
     padding: '40px 20px',
     backgroundColor: '#191e29',
     color: '#ffca65',
+    flexWrap: "wrap",
   };
 
   const servicesData = [

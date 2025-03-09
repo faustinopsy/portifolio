@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <header style={headerStyles}>
-      <Heading level={2}>Faustinopsy</Heading>
+      <Heading level={2} className="logo">Faustinopsy</Heading>
       <NavList />
     </header>
   );
