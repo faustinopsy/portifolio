@@ -12,6 +12,12 @@ export default function ServicesSection() {
     flexWrap: "wrap",
   };
 
+  const sectionStyles = {
+    padding: '40px 20px',
+    textAlign: 'center',
+    backgroundColor: '#191e29',
+    color: '#ffca65'
+  };
   const servicesData = [
     {
       icon: '/images/icon-design.svg',
@@ -31,15 +37,18 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section style={servicesStyles} id='servicos'>
-      {servicesData.map((service, index) => (
-        <CardService
-          key={index}
-          icon={service.icon}
-          title={service.title}
-          description={service.description}
-        />
-      ))}
+    <section style={sectionStyles}>
+      <h2>Serviços</h2>
+      <section style={servicesStyles} id='servicos'>
+        {servicesData.map((service, index) => (
+          <CardService
+            key={index}
+            icon={service.icon}
+            title={service.title}
+            description={service.description}
+          />
+        ))}
+      </section>
     </section>
   );
 }

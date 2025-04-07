@@ -18,7 +18,7 @@ export default function CardService({ icon, title, description }) {
   };
 
   return (
-    <div style={cardStyles}>
+    <div style={cardStyles} aria-label={`${title}`}>
       <img style={iconStyles} src={icon} alt={title} />
       <Heading level={3}>{title}</Heading>
       <Text>{description}</Text>

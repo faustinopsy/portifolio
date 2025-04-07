@@ -4,7 +4,7 @@ import ContactForm from './ContactForm';
 export default function ContactSection() {
   const sectionStyles = {
     padding: '40px 20px',
-    backgroundColor: '#fff',
+    backgroundColor: '#132d46f0',
     textAlign: 'center',
   };
 

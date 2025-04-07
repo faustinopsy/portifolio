@@ -90,7 +90,7 @@ export default function ContactForm() {
 
   const buttonStyles = {
     padding: '10px',
-    backgroundColor: '#2F80ED',
+    backgroundColor: '#01c38d',
     color: '#fff',
     border: 'none',
     borderRadius: '4px',

@@ -5,6 +5,8 @@ import ServicesSection from '../organisms/ServicesSection';
 import PortfolioSection from '../organisms/PortfolioSection';
 import ContactSection from '../organisms/ContactSection';
 import Footer from '../organisms/Footer';
+import ExperiencesSection from '../organisms/ExperiencesSection'
+import ScrollToTopButton from '../atoms/ScrollToTopButton'
 
 export default function HomeTemplate() {
   return (
@@ -13,7 +15,9 @@ export default function HomeTemplate() {
       <HeroSection />
       <ServicesSection />
       <PortfolioSection />
+      <ExperiencesSection />
       <ContactSection />
+      <ScrollToTopButton />
       <Footer />
     </>
   );

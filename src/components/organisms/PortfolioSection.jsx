@@ -10,7 +10,12 @@ export default function PortfolioSection() {
     padding: '40px 20px',
     backgroundColor: '#132d46f0',
   };
-
+  const sectionStyles = {
+    padding: '40px 20px',
+    textAlign: 'center',
+    backgroundColor: '#132d46f0',
+    color: '#ffca65'
+  };
   const portfolioData = [
     {
         imageSrc: '/images/phpcrud.webp',
@@ -20,7 +25,7 @@ export default function PortfolioSection() {
     },
     {
         imageSrc: '/images/fastpage.webp',
-        title: 'Gerador de landpages simples',
+        title: 'Gerador de Landing page simples',
         description: 'Com esse gerador você consegue criar rapidamente algumas páginas de forma muito fácil.',
         link: 'https://fastpages.ceuvago.com/',
     },
@@ -52,7 +57,7 @@ export default function PortfolioSection() {
         imageSrc: '/images/pixel.webp',
         title: 'Jogo emoji pixel',
         description: 'Um jogo bme divertido para procurar tesouros no mapa e ao mesmo tempo fugir dos anjos.',
-        link: 'https://appsorte.ceuvago.com/',
+        link: 'https://pixelrpg.faustinopsy.com/',
     },
     {
       imageSrc: '/images/digital.webp',
@@ -72,19 +77,28 @@ export default function PortfolioSection() {
         description: 'um jogo interressante que vi que pode prender você até que sua mente exploda procurando resolver as combinações.',
         link: 'https://cadeado.ceuvago.com/',
       },
+      {
+        imageSrc: '/images/pedrapapel.webp',
+        title: 'Jogo dpedra papel tesoura"',
+        description: 'um jogo multiplayer, onde um jogador cria a sala e um segundo jogador entra para disputar.',
+        link: 'https://ppt.ceuvago.com/',
+      },
   ];
 
   return (
-    <section style={portfolioStyles} id='portfolio'>
-      {portfolioData.map((item, index) => (
-        <CardPortfolio
-          key={index}
-          imageSrc={item.imageSrc}
-          title={item.title}
-          description={item.description}
-          link={item.link}
-        />
-      ))}
+    <section style={sectionStyles}>
+      <h2>Portfólio</h2>
+      <section style={portfolioStyles} id='portfolio'>
+        {portfolioData.map((item, index) => (
+          <CardPortfolio
+            key={index}
+            imageSrc={item.imageSrc}
+            title={item.title}
+            description={item.description}
+            link={item.link}
+          />
+        ))}
+      </section>
     </section>
   );
 }

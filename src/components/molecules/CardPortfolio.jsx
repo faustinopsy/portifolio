@@ -5,6 +5,8 @@ import Anchor from '../atoms/Anchor';
 
 export default function CardPortfolio({ imageSrc, title, description, link }) {
   const cardStyles = {
+    display: 'flex',
+    flexDirection: 'column',
     border: '1px solid #eee',
     borderRadius: '8px',
     padding: '16px',
@@ -20,8 +22,8 @@ export default function CardPortfolio({ imageSrc, title, description, link }) {
   };
 
   const buttonStyles = {
+    marginTop: 'auto',
     display: 'inline-block',
-    marginTop: '12px',
     padding: '8px 16px',
     backgroundColor: '#01c38d',
     color: '#fff',
@@ -30,7 +32,7 @@ export default function CardPortfolio({ imageSrc, title, description, link }) {
   };
 
   return (
-    <div style={cardStyles}>
+    <div style={cardStyles} aria-label={`${title}`}>
       <img style={imgStyles} src={imageSrc} alt={title} />
       <Heading level={4}>{title}</Heading>
       <Text>{description}</Text>
