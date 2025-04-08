@@ -24,6 +24,12 @@ export default function PortfolioSection() {
         link: 'https://phpcrud.ceuvago.com/#/',
     },
     {
+        imageSrc: '/images/ide.png',
+        title: 'IDE basica no navegador',
+        description: 'uma IDE poderosa pensada para quem usa o celular e também o PC.',
+        link: 'https://fastdev.ceuvago.com/',
+    },
+    {
         imageSrc: '/images/fastpage.webp',
         title: 'Gerador de Landing page simples',
         description: 'Com esse gerador você consegue criar rapidamente algumas páginas de forma muito fácil.',
